@@ -7,8 +7,13 @@ which java
 for open-jdk
 path =/usr/lib/jvm/java-8-openjdk-amd64/bin
 
-for root user 
-sudo nano /etc/environment
-JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin"
-source /etc/environment
 echo $JAVA_HOME
+
+
+
+ Install Elasticsearch on Ubuntu
+
+sudo apt-get install apt-transport-https
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo add-apt-repository "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
+sudo apt-get update && sudo apt-get install elasticsearch
