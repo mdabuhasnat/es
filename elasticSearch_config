@@ -20,3 +20,10 @@ pid -> sudo service elasticsearch status
 
 ./bin/elasticsearch/ -> location /usr/share/elasticsearch/bin
 
+
+configure ES Network host
+network.host: 192.168.70.75
+
+this ip show by 
+	ifconfig -> enp1s0
+
