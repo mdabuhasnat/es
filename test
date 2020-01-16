@@ -1,0 +1,21 @@
+curl -XPOST 'localhost:9200/articles/_doc/1?pretty' -d '{"topic":"python","title": "python tuples","description": "practical operations with python tuples","author": "avasdfklh","date": "1-1-2019","views" : "100"}' -H 'Content-Type: application/json'
+
+curl -XPOST '192.168.101.100:9200/articles/_doc/?pretty' -d '{"topic":"python","title": "python tuples","description": "practical operations with python tuples","author": "santosh","date": "1-1-2019","views" : "100"}' -H 'Content-Type: application/json'
+
+
+	curl -XPUT '<your_elasticesarch_uri>/<index>/<type>/<doc_id>?pretty' -H 'Content-Type: application/json' -d' {    "field : "value",    ... } '
+
+POST school/_doc/10
+{
+   "name":"Saint Paul School", "description":"ICSE Afiliation",
+   "street":"Dawarka", "city":"Delhi", "state":"Delhi", "zip":"110075",
+   "location":[28.5733056, 77.0122136], "fees":5000,
+   "tags":["Good Faculty", "Great Sports"], "rating":"4.5"
+}
+
+curl -X POST 'localhost:9200/school/_doc/10/?pretty' -d { "name":"Saint Paul School", "description":"ICSE Afiliation","street":"Dawarka", "city":"Delhi", "state":"Delhi", "zip":"110075","location":[28.5733056, 77.0122136], "fees":5000,"tags":["Good Faculty", "Great Sports"], "rating":"4.5"} -H 'Content-Type: application/json' 
+
+
+curl -X POST -H 'Content-Type:application/json' http://localhost:9200/api/token -d '{"username":"mario", "password":"secret"}'
+
+curl -XDELETE 'http://localhost:9200/api/token'

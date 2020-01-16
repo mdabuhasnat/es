@@ -1,0 +1,30 @@
+Get
+	curl -XGET '<your_elasticesarch_uri>/<index>/<type>/<doc_id>?pretty'
+Delete
+	curl -XDELETE '<your_elasticesarch_uri>/<index>/<type>/<doc_id>?pretty'
+Index
+	curl -XPUT '<your_elasticesarch_uri>/<index>/<type>/<doc_id>?pretty' -H 'Content-Type: application/json' -d' {    "field : "value",    ... } '
+Update
+	curl -XPOST '<your_elasticesarch_uri>/<index>/<type>/<doc_id>/_update' -H 'Content-Type: application/json' -d' {    "field : "new_value",    ... } '
+
+
+Multiple Documents
+
+Multi-Get
+	curl -X GET '<your_elasticesarch_uri>/<index>/<type>/_mget' -H 'Content-Type: application/json' -d'{    "docs" : [        {            "_id" : "1"        },        ...    ]}'
+Bulk
+	curl -X POST "<your_elasticsearch_uri>/_bulk" -H 'Content-Type: application/json' -d'{ "index" : { "_index" : "<index>", "_type" : "<type>", "_id" : "<first_id>" } }{ "field1" : "value1" }{ "delete" : { "_index" : "<index>", "_type" : "<type>", "_id" : "<second_id>" } }'
+Important: Note that you cannot use pretty print with _bulk as \n is the delimiter.
+
+Update or Delete by Query
+	curl -XPOST '<elasticesarch_uri>/<index>/_update_by_query?pretty' -d '{	"query": {		"match": {			"phenomenon": "eclipse"		}	},	"script": {		"lang": "painless",		"inline": "ctx._source.phenomenon = 'lunar_eclipse'"	}}'
+
+Reindex
+
+curl -XPOST '<your_elasticesarch_uri>/_reindex' -d '{  "source": {    "index": "original-index"  },  "dest": {    "index": "new-index"  }}'
+
+Updated field definition, same index
+
+curl -XPOST '<your_elasticesarch_uri>/_reindex' -d '{  "source": {    "index": "original-index"  },  "dest": {    "index": "new-index"  }}'
+
+

@@ -1,0 +1,19 @@
+application_ content_formet
+
+
+
+application/x-ndjson vs application/json
+------------------------------------------
+
+The ndjson format, also called Newline delimited JSON. NDJSON is a convenient format for storing or streaming structured data that may be processed one record at a time.
+
+The bulk API makes it possible to perform many index/delete operations in a single API call. This can greatly increase the indexing speed.
+
+The final line of data must end with a newline character \n. Each newline character may be preceded by a carriage return \r. When sending requests to this endpoint the Content-Type header should be set to application/x-ndjson
+
+When calling the _bulk endpoint, the content type header should be application/x-ndjson and not application/json. NDJSON is a convenient format for storing or streaming structured data that may be processed one record at a time.
+
+The reason it is not a JSON array is because when the coordinating node receives the bulk request, it can split it in several chunks simply by looking at how many lines (i.e. new line characters) there are and send each chunk to a different node for processing. If the content was JSON, the coordinating node would have to parse it all and for several megabyte bulk queries, it would have a negative impact on performance.
+
+    Example
+    curl -H “Content-Type: application/x-ndjson” -XPOST ‘localhost:9200/customers/personal/_bulk?pretty&refresh’ –data-binary @”customers_full.json”

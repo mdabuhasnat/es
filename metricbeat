@@ -1,0 +1,18 @@
+MetricsBeats configuration templete
+
+https://github.com/elastic/beats/blob/master/metricbeat/metricbeat.reference.yml
+
+configuration file
+/etc/metricbeat/metricbeat.yml
+
+check test configuration
+sudo metricbeat -c /etc/metricbeat/metricbeat.yml test config
+output 
+Config OK
+
+
+122.222.156.42/32
+119.148.13.250/32
+202.53.168.66/32
+
+nazmulbjitgroup923@gmail.com
