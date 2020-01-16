@@ -1,0 +1,17 @@
+
+
+input {
+     file {
+ 	path => "/tmp/log.txt"
+	  }
+	  }
+output {
+     elasticsearch {
+ 	    host => "ec2-54-229-118-60.eu-west-1.compute.amazonaws.com:9200"
+	          protocol => "http"
+  	  }
+}
+
+
+
+echo "Hello" > /tmp/log.txt

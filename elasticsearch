@@ -1,6 +1,6 @@
 Install Java
 
-sudo apt install openjdk-8-jdk
+sudo apt install openjdk-8-jdk -y
 java -version
 which java
 
@@ -17,3 +17,6 @@ sudo apt-get install apt-transport-https
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 sudo add-apt-repository "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
 sudo apt-get update && sudo apt-get install elasticsearch
+
+
+sudo apt-get update && sudo apt-get install logstash
