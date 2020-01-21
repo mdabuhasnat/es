@@ -10,6 +10,8 @@ path =/usr/lib/jvm/java-8-openjdk-amd64/bin
 echo $JAVA_HOME
 
 
+export JAVA_HOME=
+
 
  Install Elasticsearch on Ubuntu
 
@@ -20,3 +22,4 @@ sudo apt-get update && sudo apt-get install elasticsearch
 
 
 sudo apt-get update && sudo apt-get install logstash
+

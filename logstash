@@ -1,13 +1,14 @@
 
 
 input {
+	
      file {
  	path => "/tmp/log.txt"
 	  }
 	  }
 output {
      elasticsearch {
- 	    host => "ec2-54-229-118-60.eu-west-1.compute.amazonaws.com:9200"
+ 	    host => "34.245.155.91:9200"
 	          protocol => "http"
   	  }
 }
@@ -15,3 +16,7 @@ output {
 
 
 echo "Hello" > /tmp/log.txt
+
+
+
+ echo "Hello" >> /var/log/filebeat.log
